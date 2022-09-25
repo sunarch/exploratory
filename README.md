@@ -4,8 +4,10 @@ miscellaneous programming things
 
 ## Parts
 
+- C
 - Haskell
 - Prolog
+- Racket
 
 ## License
 
