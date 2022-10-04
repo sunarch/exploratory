@@ -1,0 +1,765 @@
+digraph factorio_flowchart { 
+    charset="UTF-8";
+    rankdir=LR;
+    compound=true;
+    
+    graph [fontname="Times-Roman"];
+    node [fontname="Times-Roman" constraint=false];
+    edge [fontname="Times-Roman"];
+    
+    factorio [label="Factorio"];
+    
+    subgraph cluster_sources {
+        label="[sources]";
+
+        source_water [label="Water source"];
+        source_tree [label="Trees"];
+        source_coal [label="Coal deposit"];
+        source_stone [label="Stone deposit"];
+        source_iron_ore [label="Iron ore deposit"];
+        source_copper_ore [label="Copper ore deposit"];
+        source_uranium_ore [label="Uranium ore deposit"];
+    }
+    
+    subgraph cluster_raw {
+        label="[raw]";
+
+        water [label="Water"];
+        wood [label="Wood"];
+        coal [label="Coal"];
+        stone [label="Stone"];
+        iron_ore [label="Iron ore"];
+        copper_ore [label="Copper ore"];
+        uranium_ore [label="Uranium ore"];
+    }
+
+    subgraph cluster_logistics {
+        label="Logistics";
+
+        wooden_chest [label="Woden chest \n Storage size: 16"];
+        iron_chest [label="Iron chest \n Storage size: 32"];
+        steel_chest [label="Steel chest \n Storage size: 48"];
+        storage_tank [label="Storage tank \n Storage volume: 25k"];
+        
+        transport_belt [label="Transport belt \n Belt speed: 15 items/s"];
+        fast_transport_belt [label="Fast transport belt \n Belt speed: 30 items/s"];
+        express_transport_belt [label="Express transport belt \n Belt speed: 45 items/s"];
+        underground_belt [label="Underground belt \n Max. length: 5 \n Belt speed: 30 items/s"];
+        fast_underground_belt [label="Fast underground belt \n Max. length: 7 \n Belt speed: 30 items/s"];
+        express_underground_belt [label="Express underground belt \n Max. length: 9 \n Belt speed: 45 items/s"];
+        splitter [label="Splitter \n Belt speed: 15 items/s"];
+        fast_splitter [label="Fast splitter \n Belt speed: 30 items/s"];
+        express_splitter [label="Express splitter \n Belt speed: 45 items/s"];
+        
+        burner_inserter [label="Burner inserter"];
+        inserter [label="Inserter"];
+        long_handed_inserter [label="Long-handed inserter"];
+        fast_inserter [label="Fast inserter"];
+        filter_inserter [label="Filter inserter"];
+        stack_inserter [label="stack_inserter"];
+        stack_filter_inserter [label="Stack filter inserter"];
+        
+        small_electric_pole [label="Small electric pole"];
+        medium_electric_pole [label="Medium electric pole"];
+        big_electric_pole [label="Big electric pole"];
+        substation [label="Substation \n Wire reach: 18 \n Supply area: 18x18"];
+        pipe [label="Pipe"];
+        pipe_to_ground [label="Pipe to ground"];
+        pump [label="Pump"];
+        
+        rail [label="Rail"];
+        train_stop [label="Train stop"];
+        rail_signal [label="Rail signal"];
+        rail_chain_signal [label="Rail chain signal"];
+        locomotive [label="Locomotive"];
+        cargo_wagon [label="Cargo wagon"];
+        fluid_wagon [label="Fluid wagon"];
+        artillery_wagon [label="Artillery wagon"];
+        
+        car [label="Car"];
+        tank [label="Tank"];
+        spidertron [label="Spidertron"];
+        spidertron_remote [label="Spidertron remote"];
+        
+        logistic_robot [label="Logistic robot"];
+        construction_robot [label="Construction robot"];
+        active_provider_chest [label="Active provider chest"];
+        passive_provider_chest [label="Passive provider chest"];
+        storage_chest [label="Storage chest"];
+        buffer_chest [label="Buffer_chest"];
+        requester_chest [label="Requester chest"];
+        roboport [label="Roboport"];
+        
+        lamp [label="Lamp"];
+        red_wire [label="Red wire"];
+        green_wire [label="Green wire"];
+        arithmetic_combinator [label="Arithmetic combinator"];
+        decider_combinator [label="Decider combinator"];
+        constant_combinator [label="Constant combinator"];
+        power_switch [label="Power switch"];
+        programmable_speaker [label="Programmable speaker"];
+        
+        stone_brick [label="Stone brick"];
+        concrete [label="Concrete"];
+        hazard_concrete [label="Hazard concrete"];
+        refined_concrete [label="Refined concrete"];
+        refined_hazard_concrete [label="Refined hazard concrete"];
+        landfill [label="Landfill"];
+        cliff_explosived [label="Cliff explosives"];
+    }
+    
+    subgraph cluster_production {
+        label="Production";
+
+        repair_pack [label="Repair pack"];
+        
+        boiler [label="Boiler"];
+        steam_engine [label="Steam engine"];
+        solar_panel [label="Solar panel"];
+        accumulator [label="Accumulator"];
+        nuclear_reactor [label="Nuclear reactor"];
+        heat_pipe [label="Heat pipe"];
+        heat_exchanger [label="Heat exchanger"];
+        steam_turbine [label="Steam turbine"];
+        
+        burner_mining_drill [label="Burner mining drill"];
+        electric_mining_drill [label="Electric mining drill"];
+        offshore_pump [label="Offshore pump"];
+        pumpjack [label="Pumpjack"];
+        
+        stone_furnace [label="Stone furnace"];
+        steel_furnace [label="Steel furnace"];
+        electric_furnace [label="Electric furnace"];
+        
+        assembling_machine_1 [label="Assembling machine 1"];
+        assembling_machine_2 [label="Assembling machine 2"];
+        assembling_machine_3 [label="Assembling machine 3"];
+        oil_refinery [label="Oil refinery"];
+        chemical_plant [label="Chemical plant"];
+        centrifuge [label="Centrifuge"];
+        lab [label="Lab"];
+        
+        beacon [label="Beacon"];
+        speed_module [label="Speed module"];
+        speed_module_2 [label="Speed module 2"];
+        speed_module_3 [label="Speed module 3"];
+        efficiency_module [label="Efficiency module"];
+        efficiency_module_2 [label="Efficiency module 2"];
+        efficiency_module_3 [label="Efficiency module 3"];
+        prouctivity_module [label="Productivity module"];
+        prouctivity_module_2 [label="Productivity module 2"];
+        prouctivity_module_3 [label="Productivity module 3"];
+        
+        rocket_silo [label="Rocket silo"];
+        satellite [label="Satellite"];
+    }
+    
+    subgraph cluster_intermediate_products {
+        label="Intermediate products";
+
+        sulfuric_acid [label="Sulfuric acid"];
+        basic_oil_processing [label="Basic oil processing"];
+        advanced_oil_processing [label="Advanced oil processing"];
+        coal_liquefaction [label="Coal liquefaction"];
+        heavy_oil_cracking_to_light_oil [label="Heavy oil cracking to light oil"];
+        light_oil_cracking_to_petroleum_gas [label="Light oil cracking to petroleum gas"];
+        soild_fuel [label="soild_fuel"];
+        lubricant [label="Lubricant"];
+        
+        iron_plate [label="Iron plate"];
+        copper_plate [label="Copper plate"];
+        steel_plate [label="Steel plate"];
+        plastic_bar [label="Plastic bar"];
+        sulfur [label="Sulfur"];
+        battery [label="Battery"];
+        explosives [label="Explosives"];
+        uranium_processing [label="Uranium processing"];
+        
+        fill_crude_oil_barrel [label="Fill \n Crude oil barrel"];
+        fill_heavy_oil_barrel [label="Fill \n Heavy oil barrel"];
+        fill_light_oil_barrel [label="Fill \n Light oil barrel"];
+        fill_lubricant_barrel [label="Fill \n Lubricant barrel"];
+        fill_petroleum_gas_barrel [label="Fill \n Petroleum gas barrel"];
+        fill_sulfuric_acid_barrel [label="Fill \n Sulfuric acid barrel"];
+        fill_water_barrel [label="Fill \n Water barrel"];
+        
+        empty_crude_oil_barrel [label="Empty \n Heavy oil barrel"];
+        empty_light_oil_barrel [label="Empty \n Light oil barrel"];
+        empty_lubricant_barrel [label="Empty \n Lubricant barrel"];
+        empty_petroleum_gas_barrel [label="Empty \n Petroleum gas barrel"];
+        empty_sulfuric_acid_barrel [label="Empty \n Sulfuric acid barrel"];
+        empty_water_barrel [label="Empty \n Water barrel"];
+        
+        copper_cable [label="Copper cable"];
+        iron_stick [label="Iron stick"];
+        iron_gear_wheel [label="Iron gear wheel"];
+        empty_barrel [label="Empty barrel"];
+        electronic_circuit [label="Electronic circuit"];
+        advanced_electronic_circuit [label="Advanced electronic circuit"];
+        processing_unit [label="Processing unit"];
+        engine_unit [label="Engine unit"];
+        electric_engine_unit [label="Electric engine unit"];
+        flying_robot_frame [label="Flying robot frame"];
+        
+        rocket_control_unit [label="Rocket control unit"];
+        low_density_structure [label="Low density structure"];
+        rocket_fuel [label="Rocket fuel"];
+        nuclear_fuel [label="Nuclear fuel"];
+        uranium_fuel_cell [label="Uranium fuel cell"];
+        nuclear_fuel_reprocessing [label="Nuclear fuel reprocessing"];
+        kovarex_enrichment_process [label="Kovarex enrichment process"];
+        
+        automation_science_pack [label="Automation science pack"];
+        logistic_science_pack [label="Logistic science pack"];
+        military_science_pack [label="Military science pack"];
+        chemical_science_pack [label="CHemical science pack"];
+        production_science_pack [label="Production science pack"];
+        utility_science_pack [label="Utility science pack"];
+    }
+    
+    subgraph cluster_combat {
+        label="Combat";
+
+        pistol [label="Pistol"];
+        submachine_gun [label="Submachine gun"];
+        shotgun [label="Shotgun"];
+        combat_shotgun [label="Combat shotgun"];
+        rocket_launcher [label="Rocket launcher"];
+        flamethrower [label="Flamethrower"];
+        land_mine [label="Land mine"];
+        
+        firearm_magazine [label="Firearm magazine"];
+        piercing_rounds_magazine [label="Piercing rounds magazine"];
+        uranium_rounds_magazine [label="Uranium rounds magazine"];
+        shotgun_shells [label="Shotgun shells"];
+        piercing_shotgun_shells [label="Piercing shotgun shells"];
+        cannon_shell [label="Cannon shell"];
+        explosive_cannon_shell [label="Explosive cannon shell"];
+        uranium_cannon_shell [label="Uranium cannon shell"];
+        explosive_uranium_cannon_shell [label="Explosive uranium cannon shell"];
+        artillery_shell [label="Artillery shell"];
+        
+        rocket [label="Rocket"];
+        explosive_rocket [label="Explosive rocket"];
+        atomic_bomb [label="Atomic bomb"];
+        flamethrower_ammo [label="Flamethrower ammo"];
+        
+        grenade [label="Grenade"];
+        cluster_grenade [label="Cluster grenade"];
+        poison_capsule [label="Poison capsule"];
+        slowdown_capsule [label="Slowdown capsule"];
+        defender_capsule [label="Defender capsule"];
+        distractor_capsule [label="Distractor capsule"];
+        destroyer_capsule [label="Destroyer capsule"];
+        
+        light_armor [label="Light armor"];
+        heavy_armor [label="Heavy armor"];
+        modular_armor [label="Modular armor"];
+        power_armor [label="Power armor"];
+        power_armor_mk2 [label="Power armor MK2"];
+        
+        portable_solar_panel [label="Portable solar panel"];
+        portable_fusion_rector [label="Portable fusion reactor"];
+        personal_battery [label="Personal battery"];
+        personal_battery_mk2 [label="Personal battery MK2"];
+        belt_immunity_equipment [label="Belt immunity equipment"];
+        exoskeleton [label="exoskeleton"];
+        personal_roboport [label="Personal roboport"];
+        personal_roboport_mk2 [label="Personal roboport MK2"];
+        nightvision [label="Nightvision"];
+        
+        energy_shield [label="Energy shield"];
+        energy_shield_mk2 [label="Energy shield MK2"];
+        personal_laser_defense [label="Personal laser defense"];
+        discharge_defense [label="Discharge defense"];
+        discharge_defense_remote [label="Discharge defense remote"];
+        
+        wall [label="Wall"];
+        gate [label="Gate"];
+        gun_turret [label="Gun turret"];
+        laser_turret [label="Laser turret"];
+        flamethrower_turret [label="Flamethrower turret"];
+        artillery_turret [label="Artillery turret"];
+        artillery_targeting_remote [label="Artillery targeting remote"];
+        radar [label="Radar"];
+    }
+    
+    factorio -> source_uranium_ore [lhead=cluster_sources label=" "];
+    factorio -> uranium_ore [lhead=cluster_raw label=" "];
+    factorio -> wooden_chest [lhead=cluster_logistics label=" "];
+    factorio -> repair_pack [lhead=cluster_production label=" "];
+    factorio -> sulfuric_acid [lhead=cluster_intermediate_products label=" "];
+    factorio -> pistol [lhead=cluster_combat label=" "];
+    
+    source_water -> water;
+    source_tree -> wood;
+    source_coal -> coal;
+    source_stone -> stone;
+    source_iron_ore -> iron_ore;
+    source_copper_ore -> copper_ore;
+    source_uranium_ore -> uranium_ore;
+    
+    wood -> wooden_chest [label="2"];
+    
+    iron_plate -> iron_chest [label="8"];
+    
+    steel_plate -> steel_chest [label="8"];
+    
+    iron_plate -> storage_tank [label="20"];
+    steel_plate -> storage_tank [label="5"];
+    
+    
+    iron_plate -> transport_belt [label="1"];
+    iron_gear_wheel -> transport_belt [label="1"];
+    
+    iron_gear_wheel -> fast_transport_belt [label="5"];
+    transport_belt -> fast_transport_belt [label="1"];
+     
+    iron_gear_wheel -> express_transport_belt [label="10"];
+    fast_transport_belt -> express_transport_belt [label="1"];
+    lubricant -> express_transport_belt [label="20"];
+     
+    iron_plate -> underground_belt [label="10"];
+    transport_belt -> underground_belt [label="5"];
+     
+    iron_gear_wheel -> fast_underground_belt [label="40"];
+    underground_belt -> fast_underground_belt [label="2"];
+     
+    iron_gear_wheel -> express_underground_belt [label="80"];
+    fast_underground_belt -> express_underground_belt [label="2"];
+    lubricant -> express_underground_belt [label="40"];
+     
+    iron_plate -> splitter [label="5"];
+    electronic_circuit -> splitter [label="5"];
+    transport_belt -> splitter [label="4"];
+     
+    iron_gear_wheel -> fast_splitter [label="10"];
+    electronic_circuit -> fast_splitter [label="10"];
+    splitter -> fast_splitter [label="1"];
+     
+    iron_gear_wheel -> express_splitter [label="10"];
+    advances_curcuit -> express_splitter [label="10"];
+    fast_splitter -> express_splitter [label="1"];
+    lubricant -> express_splitter [label="80"];
+    
+    iron_plate -> burner_inserter [label="1"];
+    iron_gear_wheel -> burner_inserter [label="1"];
+     
+    iron_plate -> inserter [label="1"];
+    iron_gear_wheel -> inserter [label="1"];
+    electronic_circuit -> inserter [label="1"];
+     
+    iron_plate -> long_handed_inserter [label="1"];
+    iron_gear_wheel -> long_handed_inserter [label="1"];
+    inserter -> long_handed_inserter [label="1"];
+     
+    iron_plate -> fast_inserter [label="2"];
+    electronic_circuit -> fast_inserter [label="2"];
+    inserter -> fast_inserter [label="1"];
+     
+    electronic_circuit -> filter_inserter [label="4"];
+    fast_inserter -> filter_inserter [label="1"];
+     
+    iron_gear_wheel -> stack_inserter [label="15"];
+    electronic_circuit -> stack_inserter [label="15"];
+    advanced_electronic_circuit -> stack_inserter [label="1"];
+    fast_inserter -> stack_inserter [label="1"];
+     
+    electronic_circuit -> stack_filter_inserter [label="5"];
+    stack_inserter -> stack_filter_inserter [label="1"];
+    
+    wood -> small_electric_pole [label="1"];
+    copper_cable -> small_electric_pole [label="2"];
+     
+    copper_plate -> medium_electric_pole [label="2"];
+    steel_plate -> medium_electric_pole [label="2"];
+    iron_stick -> medium_electric_pole [label="4"];
+     
+    copper_plate -> big_electric_pole [label="5"];
+    steel_plate -> big_electric_pole [label="5"];
+    iron_stick -> big_electric_pole [label="8"];
+     
+    copper_plate -> substation [label="5"];
+    steel_plate -> substation [label="10"];
+    advanced_electronic_circuit -> substation [label="5"];
+     
+    iron_plate -> pipe [label="1"];
+     
+    iron_plate -> pipe_to_ground [label="5"];
+    pipe -> pipe_to_ground [label="10"];
+     
+    steel_plate -> pump [label="1"];
+    engine_unit -> pump [label="1"];
+    pipe -> pump [label="1"];
+    
+    stone -> rail [label="1"];
+    steel_plate -> rail [label="1"];
+    iron_stick -> rail [label="1"];
+     
+    iron_plate -> train_stop [label="6"];
+    steel_plate -> train_stop [label="3"];
+    iron_stick -> train_stop [label="6"];
+    electronic_circuit -> train_stop [label="5"];
+     
+    iron_plate -> rail_signal [label="5"];
+    electronic_circuit -> rail_signal [label="1"];
+     
+    iron_plate -> rail_chain_signal [label="5"];
+    electronic_circuit -> rail_chain_signal [label="1"];
+     
+    steel_plate -> locomotive [label="30"];
+    electronic_circuit -> locomotive [label="10"];
+    engine_unit -> locomotive [label="20"];
+     
+    iron_plate -> cargo_wagon [label="20"];
+    steel_plate -> cargo_wagon [label="20"];
+    iron_gear_wheel -> cargo_wagon [label="10"];
+     
+    steel_plate -> fluid_wagon [label="16"];
+    iron_gear_wheel -> fluid_wagon [label="10"];
+    storage_tank -> fluid_wagon [label="1"];
+    pipe -> fluid_wagon [label="8"];
+     
+     -> artillery_wagon [label=" "];
+    
+     -> car [label=" "];
+     
+     -> tank [label=" "];
+     
+     -> spidertron [label=" "];
+     
+     -> spidertron_remote [label=" "];
+    
+     -> logistic_robot [label=" "];
+     
+     -> construction_robot [label=" "];
+     
+     -> active_provider_chest [label=" "];
+     
+     -> passive_provider_chest [label=" "];
+     
+     -> storage_chest [label=" "];
+     
+     -> buffer_chest [label=" "];
+     
+     -> requester_chest [label=" "];
+     
+     -> roboport [label=" "];
+    
+     -> lamp [label=" "];
+     
+     -> red_wire [label=" "];
+     
+     -> green_wire [label=" "];
+     
+     -> arithmetic_combinator [label=" "];
+     
+     -> decider_combinator [label=" "];
+     
+     -> constant_combinator [label=" "];
+     
+     -> power_switch [label=" "];
+     
+     -> programmable_speaker [label=" "];
+    
+     -> stone_brick [label=" "];
+     
+     -> concrete [label=" "];
+     
+     -> hazard_concrete [label=" "];
+     
+     -> refined_concrete [label=" "];
+     
+     -> refined_hazard_concrete [label=" "];
+     -> landfill [label=" "];
+     
+     -> cliff_explosived [label=" "];
+
+
+     -> repair_pack [label=" "];
+    
+     -> boiler [label=" "];
+     
+     -> steam_engine [label=" "];
+     
+     -> solar_panel [label=" "];
+     
+     -> accumulator [label=" "];
+     
+     -> nuclear_reactor [label=" "];
+     
+     -> heat_pipe [label=" "];
+     
+     -> heat_exchanger [label=" "];
+     
+     -> steam_turbine [label=" "];
+    
+     -> burner_mining_drill [label=" "];
+     
+     -> electric_mining_drill [label=" "];
+     
+     -> offshore_pump [label=" "];
+     
+     -> pumpjack [label=" "];
+    
+     -> stone_furnace [label=" "];
+     
+     -> steel_furnace [label=" "];
+     
+     -> electric_furnace [label=" "];
+    
+     -> assembling_machine_1 [label=" "];
+     
+     -> assembling_machine_2 [label=" "];
+     
+     -> assembling_machine_3 [label=" "];
+     
+     -> oil_refinery [label=" "];
+     
+     -> chemical_plant [label=" "];
+     
+     -> centrifuge [label=" "];
+     
+     -> lab [label=" "];
+    
+     -> beacon [label=" "];
+     
+     -> speed_module [label=" "];
+     
+     -> speed_module_2 [label=" "];
+     
+     -> speed_module_3 [label=" "];
+     
+     -> efficiency_module [label=" "];
+     
+     -> efficiency_module_2 [label=" "];
+     
+     -> efficiency_module_3 [label=" "];
+     
+     -> prouctivity_module [label=" "];
+     
+     -> prouctivity_module_2 [label=" "];
+     
+     -> prouctivity_module_3 [label=" "];
+    
+     -> rocket_silo [label=" "];
+     
+     -> satellite [label=" "];
+
+
+     -> sulfuric_acid [label=" "];
+     
+     -> basic_oil_processing [label=" "];
+     
+     -> advanced_oil_processing [label=" "];
+     
+     -> coal_liquefaction [label=" "];
+     
+     -> heavy_oil_cracking_to_light_oil [label=" "];
+     
+     -> light_oil_cracking_to_petroleum_gas [label=" "];
+     
+     -> soild_fuel [label=" "];
+     
+     -> lubricant [label=" "];
+    
+     -> iron_plate [label=" "];
+     
+     -> copper_plate [label=" "];
+     
+     -> steel_plate [label=" "];
+     
+     -> plastic_bar [label=" "];
+     
+     -> sulfur [label=" "];
+     
+     -> battery [label=" "];
+     
+     -> explosives [label=" "];
+     
+     -> uranium_processing [label=" "];
+    
+     -> fill_crude_oil_barrel [label=" "];
+     
+     -> fill_heavy_oil_barrel [label=" "];
+     
+     -> fill_light_oil_barrel [label=" "];
+     
+     -> fill_lubricant_barrel [label=" "];
+     
+     -> fill_petroleum_gas_barrel [label=" "];
+     
+     -> fill_sulfuric_acid_barrel [label=" "];
+     
+     -> fill_water_barrel [label=" "];
+    
+     -> empty_crude_oil_barrel [label=" "];
+     
+     -> empty_light_oil_barrel [label=" "];
+     
+     -> empty_lubricant_barrel [label=" "];
+     
+     
+     -> empty_petroleum_gas_barrel [label=" "];
+     
+     -> empty_sulfuric_acid_barrel [label=" "];
+     
+     -> empty_water_barrel [label=" "];
+    
+     -> copper_cable [label=" "];
+     
+     -> iron_stick [label=" "];
+     
+     -> iron_gear_wheel [label=" "];
+     
+     -> empty_barrel [label=" "];
+     
+     -> electronic_circuit [label=" "];
+     
+     -> advanced_electronic_circuit [label=" "];
+     
+     -> processing_unit [label=" "];
+     
+     -> engine_unit [label=" "];
+     
+     -> electric_engine_unit [label=" "];
+     
+     -> flying_robot_frame [label=" "];
+    
+     -> rocket_control_unit [label=" "];
+     
+     -> low_density_structure [label=" "];
+     
+     -> rocket_fuel [label=" "];
+     
+     -> nuclear_fuel [label=" "];
+     
+     -> uranium_fuel_cell [label=" "];
+     
+     -> nuclear_fuel_reprocessing [label=" "];
+     
+     -> kovarex_enrichment_process [label=" "];
+    
+     -> automation_science_pack [label=" "];
+     
+     -> logistic_science_pack [label=" "];
+     
+     -> military_science_pack [label=" "];
+     
+     -> chemical_science_pack [label=" "];
+     
+     -> production_science_pack [label=" "];
+     
+     -> utility_science_pack [label=" "];
+
+     -> pistol [label=" "];
+     
+     -> submachine_gun [label=" "];
+     
+     -> shotgun [label=" "];
+     
+     -> combat_shotgun [label=" "];
+     
+     -> rocket_launcher [label=" "];
+     
+     -> flamethrower [label=" "];
+     
+     -> land_mine [label=" "];
+    
+     -> firearm_magazine [label=" "];
+     
+     -> piercing_rounds_magazine [label=" "];
+     
+     -> uranium_rounds_magazine [label=" "];
+     
+     -> shotgun_shells [label=" "];
+     
+     -> piercing_shotgun_shells [label=" "];
+     
+     -> cannon_shell [label=" "];
+     
+     -> explosive_cannon_shell [label=" "];
+     
+     -> uranium_cannon_shell [label=" "];
+     
+     -> explosive_uranium_cannon_shell [label=" "];
+     
+     -> artillery_shell [label=" "];
+    
+     -> rocket [label=" "];
+     
+     -> explosive_rocket [label=" "];
+     
+     -> atomic_bomb [label=" "];
+     
+     -> flamethrower_ammo [label=" "];
+    
+     -> grenade [label=" "];
+     
+     -> cluster_grenade [label=" "];
+     
+     -> poison_capsule [label=" "];
+     
+     -> slowdown_capsule [label=" "];
+     
+     -> defender_capsule [label=" "];
+     
+     -> distractor_capsule [label=" "];
+     
+     -> destroyer_capsule [label=" "];
+    
+     -> light_armor [label=" "];
+     
+     -> heavy_armor [label=" "];
+     
+     -> modular_armor [label=" "];
+     
+     -> power_armor [label=" "];
+     
+     -> power_armor_mk2 [label=" "];
+    
+     -> portable_solar_panel [label=" "];
+     
+     -> portable_fusion_rector [label=" "];
+     
+     -> personal_battery [label=" "];
+     
+     -> personal_battery_mk2 [label=" "];
+     
+     -> belt_immunity_equipment [label=" "];
+     
+     -> exoskeleton [label=" "];
+     
+     -> personal_roboport [label=" "];
+     
+     -> personal_roboport_mk2 [label=" "];
+     
+     -> nightvision [label=" "];
+    
+     -> energy_shield [label=" "];
+     
+     -> energy_shield_mk2 [label=" "];
+     
+     -> personal_laser_defense [label=" "];
+     
+     -> discharge_defense [label=" "];
+     
+     -> discharge_defense_remote [label=" "];
+    
+     -> wall [label=" "];
+     
+     -> gate [label=" "];
+     
+     -> gun_turret [label=" "];
+     
+     -> laser_turret [label=" "];
+     
+     -> flamethrower_turret [label=" "];
+     
+     -> artillery_turret [label=" "];
+     
+     -> artillery_targeting_remote [label=" "];
+
+     -> radar [label=" "];
+    
+}
