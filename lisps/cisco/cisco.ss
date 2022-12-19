@@ -7,7 +7,7 @@
 
 ; strings and number-code; strings and number-codes
 
-(define text "OpenWRT")
+(define text "OpenWrt")
 (define output (make-string (string-length text) #\A))
 
 (define (ords str) (map char->integer (string->list str)))
