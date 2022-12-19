@@ -45,6 +45,28 @@
 
 (newline)
 
+; v2
+
+(write "v2")(newline)
+
+(define diff-minus-2 (diff d-minus text-ords output-ords))
+(write diff-minus-2)(newline)
+
+(define ord-a (char->integer #\A))
+(define offset (- (char->integer #\Z) (- ord-a 1)))
+(define int-offset (map (lambda (x) (+ ord-a x)) diff-minus-2))
+(write int-offset)(newline)
+
+(define int-offset-mod (map (lambda (x) (+ ord-a (mod x offset))) diff-minus-2))
+(write int-offset-mod)(newline)
+
+(define (chars int-list) (list->string (map integer->char int-list)))
+
+(define int-chars (chars int-offset-mod))
+(write int-chars)(newline)
+
+(newline)
+
 ; end
 
 (exit)
