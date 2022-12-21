@@ -19,16 +19,29 @@ defmodule Fibonacci do
     {second, first + second}
   end
   
-  def sequence(0), do: [0]
-  def sequence(1), do: [0, 1]
-  def sequence(n) do
-    {_, _, seq} = _sequence(n)
+  def sequence_list_forward(0), do: [0]
+  def sequence_list_forward(1), do: [0, 1]
+  def sequence_list_forward(n) do
+    {_, _, seq} = _sequence_list_forward(n)
     seq
   end
-  defp _sequence(1), do: {0, 1, [0, 1]}
-  defp _sequence(n) do
-    {prev, last, seq} = _sequence(n-1)
+  defp _sequence_list_forward(1), do: {0, 1, [0, 1]}
+  defp _sequence_list_forward(n) do
+    {prev, last, seq} = _sequence_list_forward(n-1)
     new = prev + last
     {last, new, seq ++ [new]}
+  end
+  
+  def sequence_tuple_forward(0), do: {0}
+  def sequence_tuple_forward(1), do: {0, 1}
+  def sequence_tuple_forward(n) do
+    {_, _, seq} = _sequence_tuple_forward(n)
+    seq
+  end
+  defp _sequence_tuple_forward(1), do: {0, 1, {0, 1}}
+  defp _sequence_tuple_forward(n) do
+    {prev, last, seq} = _sequence_tuple_forward(n-1)
+    new = prev + last
+    {last, new, Tuple.append(seq, new)}
   end
 end
