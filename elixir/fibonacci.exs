@@ -1,0 +1,34 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# based on:
+# https://hachyderm.io/@mlibby/109548310574605544
+# by https://github.com/mlibby
+
+defmodule Fibonacci do
+
+  def number(0), do: 0
+  def number(n) do 
+    {_, second} = _number(n)
+    second
+  end
+  defp _number(1), do: {0, 1}
+  defp _number(n) do
+    {first, second} = _number(n-1)
+    {second, first + second}
+  end
+  
+  def sequence(0), do: [0]
+  def sequence(1), do: [0, 1]
+  def sequence(n) do
+    {_, _, seq} = _sequence(n)
+    seq
+  end
+  defp _sequence(1), do: {0, 1, [0, 1]}
+  defp _sequence(n) do
+    {prev, last, seq} = _sequence(n-1)
+    new = prev + last
+    {last, new, seq ++ [new]}
+  end
+end
