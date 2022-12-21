@@ -1,0 +1,77 @@
+========================================
+ITERATIONS:  1000
+========================================
+
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i7-4710MQ CPU @ 2.50GHz
+Number of Available Cores: 8
+Available memory: 15.51 GB
+Elixir 1.12.2
+Erlang 24.2.1
+
+--------------------------------------------------------------------------------
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 2 s
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 18 s
+
+Benchmarking Fibonacci - number ...
+Benchmarking FibonacciMLibby - number ...
+
+Name                               ips        average  deviation         median         99th %
+Fibonacci - number             27.21 K       36.75 μs    ±15.04%       35.04 μs       58.69 μs
+FibonacciMLibby - number       25.11 K       39.82 μs    ±17.03%       38.50 μs       70.80 μs
+
+Comparison: 
+Fibonacci - number             27.21 K
+FibonacciMLibby - number       25.11 K - 1.08x slower +3.07 μs
+
+Memory usage statistics:
+
+Name                        Memory usage
+Fibonacci - number              23.41 KB
+FibonacciMLibby - number        15.61 KB - 0.67x memory usage -7.80469 KB
+
+**All measurements for memory usage were the same**
+
+--------------------------------------------------------------------------------
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 2 s
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 27 s
+
+Benchmarking Fibonacci - sequence_list_forward ...
+Benchmarking Fibonacci - sequence_tuple_forward ...
+Benchmarking FibonacciMLibby - sequence ...
+
+Name                                         ips        average  deviation         median         99th %
+FibonacciMLibby - sequence               21.53 K       46.45 μs    ±24.13%       40.42 μs       87.97 μs
+Fibonacci - sequence_tuple_forward        1.75 K      570.45 μs    ±31.54%      517.49 μs     1152.64 μs
+Fibonacci - sequence_list_forward         0.46 K     2178.75 μs    ±10.36%     2137.85 μs     3218.85 μs
+
+Comparison: 
+FibonacciMLibby - sequence               21.53 K
+Fibonacci - sequence_tuple_forward        1.75 K - 12.28x slower +523.99 μs
+Fibonacci - sequence_list_forward         0.46 K - 46.90x slower +2132.30 μs
+
+Memory usage statistics:
+
+Name                                       average  deviation         median         99th %
+FibonacciMLibby - sequence               0.0288 MB     ±0.00%      0.0288 MB      0.0288 MB
+Fibonacci - sequence_tuple_forward         3.42 MB     ±0.00%        3.42 MB        3.42 MB
+Fibonacci - sequence_list_forward          7.01 MB     ±0.00%        7.01 MB        7.01 MB
+
+Comparison: 
+FibonacciMLibby - sequence               0.0288 MB
+Fibonacci - sequence_tuple_forward         3.42 MB - 118.86x memory usage +3.40 MB
+Fibonacci - sequence_list_forward          7.01 MB - 243.44x memory usage +6.98 MB
