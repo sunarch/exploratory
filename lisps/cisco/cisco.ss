@@ -2,7 +2,7 @@
 
 ; https://fosstodon.org/@yakkoj/109531403187870756
 
-(library-directories "~/Documents/github/z-reference/ovenpasta/thunderchez")
+(library-directories "~/Documents/programlibs/thunderchez")
 (import (srfi s1 lists))
 
 ; strings and number-code; strings and number-codes
